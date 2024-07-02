@@ -1,6 +1,8 @@
 import React from 'react';
-import { FaAd, FaCalendar, FaComment, FaHome, FaPaypal, FaShoppingCart } from 'react-icons/fa';
-import { Link, NavLink, Outlet } from 'react-router-dom';
+import { FaAd, FaCalendar, FaComment, FaEnvelope, FaHome, FaPaypal, FaShoppingCart } from 'react-icons/fa';
+import { FaShop } from 'react-icons/fa6';
+import { IoMdMenu } from 'react-icons/io';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const Dashboard = () => {
     return (
@@ -26,6 +28,19 @@ const Dashboard = () => {
                     </li>
                     <li>
                         <NavLink to="/dashboard/booking"><FaAd></FaAd> My Booking</NavLink>
+                    </li>
+                    <div className='divider divider-error'></div>
+                    <li>
+                        <NavLink to="/"><FaHome></FaHome>Home</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/menu"><IoMdMenu></IoMdMenu>Menu</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/order"><FaShop></FaShop>Order</NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/contact"><FaEnvelope></FaEnvelope> Contact</NavLink>
                     </li>
                 </ul>
             </div>

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import SocialLogin from '../../Components/SocialLogin';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -53,7 +54,8 @@ const Login = () => {
                     </div>
                     <input type="submit" value="Login" className='w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200'/>
                 </form>
-                <p>Don't have any account? <Link to='/register' className='underline'>Create new one</Link></p>
+                <p className='my-2'>Don't have any account? <Link to='/register' className='underline'>Create new one</Link></p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );

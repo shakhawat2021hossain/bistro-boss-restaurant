@@ -2,9 +2,12 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import toast from 'react-hot-toast';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import SocialLogin from '../../Components/SocialLogin';
 
 const Register = () => {
     const { register, updateUserProfile } = useAuth();
+    const axiosPublic = useAxiosPublic()
     const navigate = useNavigate()
     const handleRegister = (e) => {
         e.preventDefault()
@@ -17,15 +20,26 @@ const Register = () => {
         register(email, pass)
             .then(res => {
                 const user = res.user
-                // prompt("registered");
+
                 // update name and photo
                 updateUserProfile(name, photo, user)
                     .then(() => console.log("user profile updated"))
                     .catch(err => console.log(err))
+                const userData = {
+                    name,
+                    email,
+                    photo
+                }
+                axiosPublic.post("/users", userData)
+                    .then(res => {
+                        console.log(res);
+                        toast.success("registered successfully")
+                        navigate('/')
+                    })
+                    .catch(err => console.log(err))
 
-                toast.success("registered successfully")
+
                 // console.log(user);
-                navigate('/')
             })
             .catch(err => console.log(err))
     }
@@ -74,9 +88,10 @@ const Register = () => {
                             placeholder="Enter your password"
                         />
                     </div>
-                    <input type="submit" value="Login" className='w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200' />
+                    <input type="submit" value="Register" className='w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200' />
                 </form>
-                <p>Already have an account? <Link to='/login' className='underline'>Login</Link></p>
+                <p className='my-2'>Already have an account? <Link to='/login' className='underline'>Login</Link></p>
+                <SocialLogin></SocialLogin>
             </div>
         </div>
     );
