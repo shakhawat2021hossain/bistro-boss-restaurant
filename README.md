@@ -1,8 +1,8 @@
 # Bistro Boss Restaurant Backend
 
 This is the backend code for the Bistro Boss Restaurant website. It is built using Express.js, MongoDB, and Stripe for handling various operations such as user authentication, menu management, cart management, and payment processing. 
-Live Site: https://bistro-boss-restaurant-by-shakhawat.netlify.app/
-admin login: email- hello@world.com, pass- 123456
+- Live Site: https://bistro-boss-restaurant-by-shakhawat.netlify.app/
+- admin login: email- hello@world.com, pass- 123456
 
 ## Features
 
