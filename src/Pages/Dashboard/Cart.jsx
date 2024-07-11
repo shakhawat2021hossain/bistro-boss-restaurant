@@ -2,6 +2,7 @@ import React from 'react';
 import useCart from '../../Hooks/useCart';
 import CaartTable from './CaartTable';
 import SectionTitle from '../../Components/SectionTitle';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart, refetch] = useCart()
@@ -13,7 +14,11 @@ const Cart = () => {
             <div className='my-4 max-w-3xl mx-auto flex text-lg justify-around items-center'>
                 <p>Items: {cart.length}</p>
                 <p>Total: ${totalPrice}</p>
-                <button className='btn btn-secondary'>Pay</button>
+                {
+                    cart.length ? <Link to='/dashboard/payment'><button className='btn btn-secondary'>Pay</button></Link> :
+                    <button disabled className='btn btn-secondary'>Pay</button>
+                }
+                
             </div>
             <div className="overflow-x-auto max-w-3xl mx-auto">
                 <table className="table">

@@ -23,7 +23,7 @@ const AddItem = () => {
             }
         })
         console.log(result.data);
-        if(result.data.success){
+        if (result.data.success) {
             const menuData = {
                 name: data.name,
                 price: parseFloat(data.price),
@@ -32,12 +32,12 @@ const AddItem = () => {
                 image: result.data.data.display_url
             }
             const res = await axiosSecure.post('/menu', menuData)
-            if(res.data.insertedId){
+            if (res.data.insertedId) {
                 toast.success("Menu added Successfully")
             }
         }
         reset()
-        
+
     }
 
     return (

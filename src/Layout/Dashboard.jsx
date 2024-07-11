@@ -31,7 +31,7 @@ const Dashboard = () => {
                             <li>
                                 <NavLink to="/dashboard/users"><FaUser></FaUser> All Users</NavLink>
                             </li>
-                            <div className='divider divider-error'></div>
+                            <div className="border-t border-white my-4"></div>
                             <li>
                                 <NavLink to="/"><FaHome></FaHome>Home</NavLink>
                             </li>

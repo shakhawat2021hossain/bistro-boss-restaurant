@@ -32,7 +32,7 @@ const Register = () => {
                 }
                 axiosPublic.post("/users", userData)
                     .then(res => {
-                        console.log(res);
+                        // console.log(res);
                         toast.success("registered successfully")
                         navigate('/')
                     })
@@ -41,7 +41,7 @@ const Register = () => {
 
                 // console.log(user);
             })
-            .catch(err => console.log(err))
+            .catch(err => toast.error(`${err.message}`))
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
