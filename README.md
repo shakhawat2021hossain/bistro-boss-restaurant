@@ -27,15 +27,11 @@ This is the front-end code for the Bistro Boss Restaurant website. It is built u
 - React Hot Toast
 - React Icons
 - React Loader Spinner
-- React Loading Skeleton
 - React Paginate
 - React Parallax
 - React Responsive Carousel
-- React Simple Captcha
-- React Slick
 - React Tabs
 - React Toastify
-- Recharts
 - SweetAlert2
 
 
