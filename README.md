@@ -21,8 +21,6 @@ This is the front-end code for the Bistro Boss Restaurant website. It is built u
 - Stripe
 - TanStack React Query
 - dotenv
-- Moment.js
-- PropTypes
 - React Hook Form
 - React Hot Toast
 - React Icons
