@@ -13,14 +13,6 @@ const ManageItems = () => {
     const [menu, loading, refetch] = useMenu()
     const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
-    // const { data: menu = [], refetch } = useQuery({
-    //     queryKey: ["menu"],
-    //     queryFn: async () => {
-    //         const res = await axiosPublic.get("/menu")
-    //         // console.log(res.data);
-    //         return res.data
-    //     }
-    // })
 
     const handleDelete = id => {
         Swal.fire({

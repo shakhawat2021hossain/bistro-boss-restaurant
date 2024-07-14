@@ -1,13 +1,18 @@
 import React from 'react';
-import { FaAd, FaBook, FaCalendar, FaComment, FaEnvelope, FaHome, FaList, FaPaypal, FaShoppingCart, FaUser, FaUtensils } from 'react-icons/fa';
+import { FaAd, FaBook, FaCalendar, FaComment, FaEnvelope, FaHistory, FaHome, FaList, FaPaypal, FaShoppingCart, FaUser, FaUtensils } from 'react-icons/fa';
 import { FaShop } from 'react-icons/fa6';
 import { IoMdMenu } from 'react-icons/io';
 import { NavLink, Outlet } from 'react-router-dom';
 import useAdmin from '../Hooks/useAdmin';
 
 const Dashboard = () => {
-    const [isAdmin] = useAdmin();
+    const [isAdmin, adminLoading] = useAdmin();
     // const isAdmin = true
+    if (adminLoading) {
+        return <div className='flex items-center justify-center'>
+            <span className="loading loading-dots loading-lg"></span>
+        </div>
+    }
     return (
         <div className='flex'>
             <div className="w-1/6 min-h-screen bg-orange-600">
@@ -26,7 +31,7 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/manage-items"><FaList></FaList> Manage Items</NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/manage-bookings"><FaBook></FaBook> Manage Booking</NavLink>
+                                <NavLink to="/dashboard/payment-history"><FaHistory></FaHistory>Payment History</NavLink>
                             </li>
                             <li>
                                 <NavLink to="/dashboard/users"><FaUser></FaUser> All Users</NavLink>
@@ -49,25 +54,25 @@ const Dashboard = () => {
                             :
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/user">
+                                    <NavLink to="/dashboard/user-home">
                                         <FaHome></FaHome> User Home
                                     </NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/cart"><FaShoppingCart></FaShoppingCart> Cart</NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/dashboard/reservation"><FaCalendar></FaCalendar> Reservation</NavLink>
-                                </li>
+                                </li> */}
                                 <li>
-                                    <NavLink to="/dashboard/review"><FaComment></FaComment> Add Review</NavLink>
+                                    <NavLink to="/dashboard/add-review"><FaComment></FaComment> Add Review</NavLink>
                                 </li>
                                 <li>
                                     <NavLink to="/dashboard/payment-history"><FaPaypal></FaPaypal> Payment History</NavLink>
                                 </li>
-                                <li>
+                                {/* <li>
                                     <NavLink to="/dashboard/booking"><FaAd></FaAd> My Booking</NavLink>
-                                </li>
+                                </li> */}
                                 <div className='divider divider-error'></div>
                                 <li>
                                     <NavLink to="/"><FaHome></FaHome>Home</NavLink>

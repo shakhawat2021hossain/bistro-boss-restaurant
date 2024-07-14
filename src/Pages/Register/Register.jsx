@@ -41,7 +41,7 @@ const Register = () => {
 
                 // console.log(user);
             })
-            .catch(err => toast.error(`${err.message}`))
+            .catch(err => toast.error(`Error: ${err.message}`))
     }
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">
@@ -64,7 +64,7 @@ const Register = () => {
                             type="text"
                             id="photo"
                             name='photo'
-                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
                             placeholder="Enter photo url"
                         />
                     </div>
@@ -74,7 +74,7 @@ const Register = () => {
                             type="email"
                             id="email"
                             name='email'
-                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
                             placeholder="Enter your email"
                         />
                     </div>
@@ -84,11 +84,11 @@ const Register = () => {
                             type="password"
                             id="password"
                             name='pass'
-                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full px-3 py-2 border rounded-md text-gray-700 focus:outline-none focus:ring-2 focus:ring-orange-500"
                             placeholder="Enter your password"
                         />
                     </div>
-                    <input type="submit" value="Register" className='w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200' />
+                    <input type="submit" value="Register" className='w-full bg-orange-500 text-white py-2 px-4 rounded-md hover:bg-orange-600 transition duration-200' />
                 </form>
                 <p className='my-2'>Already have an account? <Link to='/login' className='underline'>Login</Link></p>
                 <SocialLogin></SocialLogin>

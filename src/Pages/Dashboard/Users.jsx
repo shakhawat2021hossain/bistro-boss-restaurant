@@ -3,6 +3,7 @@ import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import { FaTrash, FaUser } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import SectionTitle from '../../Components/SectionTitle';
 
 const Users = () => {
     const axiosSecure = useAxiosSecure()
@@ -68,9 +69,10 @@ const Users = () => {
         });
     }
     return (
-        <div>
-            <h1 className='tex-3xl'>Users {users.length}</h1>
-            <div className="overflow-x-auto max-w-3xl mx-auto my-8">
+        <div className='my-8'>
+            <SectionTitle heading={"All Users"} subHeading={"Manage Users"}></SectionTitle>
+            <h1 className='text-3xl text-center'>{users.length} Users</h1>
+            <div className="overflow-x-auto max-w-3xl mx-auto my-8 bg-base-200">
                 <table className="table">
                     {/* head */}
                     <thead>

@@ -12,8 +12,10 @@ const Contact = () => {
                 <title>Bistro Boss | Contact</title>
             </Helmet>
             <Cover img={contactBG} title={"Contact Us"}></Cover>
-            <Location></Location>
-            <ContactForm></ContactForm>
+            <div className='mx-2'>
+                <Location></Location>
+                <ContactForm></ContactForm>
+            </div>
 
         </div>
     );

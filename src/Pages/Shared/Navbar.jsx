@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { FaCartPlus } from 'react-icons/fa';
 import useCart from '../../Hooks/useCart';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Navbar = () => {
     const { user, logOut } = useAuth()
+    const [isAdmin, adminLoading] = useAdmin();
+
     const [cart] = useCart()
     const handleLogOut = () => {
         logOut()
@@ -13,25 +16,32 @@ const Navbar = () => {
             .catch(err => console.log(err))
     }
     const menu = <>
-        <li><Link className='text-lg' to='/'>Home</Link></li>
-        <li><Link className='text-lg' to='/menu'>Menu</Link></li>
-        <li><Link className='text-lg' to='/order'>Order</Link></li>
-        <li><Link className='text-lg' to='/contact'>Contact</Link></li>
+        <li><NavLink className='text-lg' to='/'>Home</NavLink></li>
+        <li><NavLink className='text-lg' to='/menu'>Menu</NavLink></li>
+        <li><NavLink className='text-lg' to='/order'>Order</NavLink></li>
+        <li><NavLink className='text-lg' to='/contact'>Contact</NavLink></li>
 
         {
             user ? <>
-                
-                <li>
-                    <Link className='text-lg' to='/dashboard/cart'>
-                            <FaCartPlus></FaCartPlus>+{cart.length}
-                    </Link>
+                <li className='mr-2'>
+                    <NavLink className='text-lg' to='/dashboard/cart'>
+                        <FaCartPlus></FaCartPlus>+{cart.length}
+                    </NavLink>
                 </li>
-                <li><button className='bg-yellow-400 px-4 rounded-sm text-lg' onClick={handleLogOut}>Logout</button></li>
+                <li><button className='bg-orange-500 px-4 rounded-sm text-lg mr-2' onClick={handleLogOut}>Logout</button></li>
 
             </> :
                 <>
-                    <li><button className='bg-yellow-400 px-4 rounded-sm text-lg'><Link to='/login'>Login</Link></button></li>
+                    <li><button className='bg-orange-500 px-4 rounded-sm text-lg'><NavLink to='/login'>Login</NavLink></button></li>
                 </>
+
+        }
+        {
+            user && isAdmin && <li><NavLink className='text-lg bg-orange-500 px-4 rounded-sm mr-2' to='/dashboard/admin-home'>Dashboard</NavLink></li>
+
+        }
+        {
+            user && !isAdmin && <li><NavLink className='text-lg bg-orange-500 px-4 rounded-sm mr-2' to='/dashboard/user-home'>Dashboard</NavLink></li>
 
         }
     </>
@@ -53,6 +63,7 @@ const Navbar = () => {
                     {menu}
                 </ul>
             </div>
+            
         </div>
     );
 };
