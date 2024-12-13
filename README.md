@@ -67,7 +67,7 @@ To access the admin features, use the following credentials:
 
 - **Email:**
    ```sh
-   hello@world.com
+   admin@bistro.com
     ```
 - **Password:**
    ```sh
